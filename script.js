@@ -4,6 +4,7 @@ const cnimetarbox = document.getElementById("cnimetar")
 const ffcdiscussbox = document.getElementById("ffcdiscussion")
 const ffchwobox = document.getElementById("ffchwo")
 const alertbox = document.getElementById("alertbox")
+const statewide = document.getElementById('alertstatewide');
 async function updateTextBoxes() {
     try {
         fetch('https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=AFDFFC').then(response => response.text()).then(data => {ffcdiscussbox.textContent = data})
@@ -25,8 +26,16 @@ async function updateTextBoxes() {
     } catch (error) {
         cninmetarbox.textContent = "CNI METAR failed to load. :-("
     }
+}
+async function updateAlertBox() {
     try {
-        const response = await fetch('https://api.weather.gov/alerts/active?point=33.94872107111243,-83.3752234533988')
+        if (statewide.checked == true) {
+            var url = 'https://api.weather.gov/alerts/active?area=GA'
+        }
+        else {
+            var url = 'https://api.weather.gov/alerts/active?point=33.94872107111243,-83.3752234533988'
+        }
+        const response = await fetch(url)
         const data = await response.json();
         if (data.features.length > 0) {
         let alertMessages = data.features.map(alert => {
@@ -40,8 +49,10 @@ async function updateTextBoxes() {
     }
     catch (error) {
         alertbox.textContent = "Alerts failed to load. I sure hope nothing is happening today..."
+        console.log(`alertbox failure: ${error}`)
     }
 }
+statewide.addEventListener('click', updateAlertBox)
 
 // day selector for wpc stuff
 const wpcimage = document.getElementById("wpcimage")
@@ -51,10 +62,6 @@ const wpc2 = document.getElementById("wpc2")
 wpc2.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad2.png'})
 const wpc3 = document.getElementById("wpc3")
 wpc3.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad3.png'})
-
-window.onload = function () {
-    updateTextBoxes()
-}
 
 // forecast generator
 const forecastForm = document.getElementById('forecastForm')
@@ -86,3 +93,8 @@ function toTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 } 
+
+window.onload = function () {
+    updateTextBoxes()
+    updateAlertBox()
+}
