@@ -6,64 +6,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body style="text-align: center;">
-<h1>The lucemapwall</h1>
+<h1 id="top">The lucemapwall</h1>
 <h3>...aka, the 4121 ultra forecast machine</h2>
 <p>(use responsibly.)</p>
 <p>Click on any image to jump to it in a new tab.</p>
-
-<h2>CONUS Satellite Imagery</h2>
-<p>For higher res imagery, go <a href="https://www.star.nesdis.noaa.gov/GOES/conus_band.php?sat=G19&band=GEOCOLOR&length=24">here.</a></p>
+<p style="font-size: 115%;">Jump to: <a href="#sat">Satellite Imagery</a> | <a href="#obs">Current Obs</a> | <a href="#guidance">Forecast Guidance</a> | <a href="#forecast">Forecast Submission</a>
+<h2 id="sat">CONUS Satellite Imagery</h2>
+<p>For other bands and higher res imagery, go <a href="https://www.star.nesdis.noaa.gov/GOES/conus.php?sat=G19">here.</a></p>
 <div class="gridcontainer">
     <div>
     <p>GEOCOLOR Loop</p>
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/GOES19-CONUS-GEOCOLOR-625x375.gif">
+        <a target="_blank" href="https://www.star.nesdis.noaa.gov/GOES/conus_band.php?sat=G19&band=GEOCOLOR&length=24"><img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/GEOCOLOR/GOES19-CONUS-GEOCOLOR-625x375.gif"></a>
     </div>
     <div>
         <p>Sandwich Loop</p>
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/Sandwich/GOES19-CONUS-Sandwich-625x375.gif">
+        <a target="_blank" href="https://www.star.nesdis.noaa.gov/GOES/conus_band.php?sat=G19&band=Sandwich&length=24"><img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/Sandwich/GOES19-CONUS-Sandwich-625x375.gif"></a>
     </div>
     <div>
         <p>Band 8 (Upper Vapor) Loop</p>
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/08/GOES19-CONUS-08-625x375.gif">
+        <a target="_blank" href="https://www.star.nesdis.noaa.gov/GOES/conus_band.php?sat=G19&band=08&length=24"><img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/CONUS/08/GOES19-CONUS-08-625x375.gif"></a>
     </div>
     <div>
         <p>GLM Loop</p>
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES19/GLM/CONUS/EXTENT3/GOES19-CONUS-EXTENT3-625x375.gif">
+        <a target="_blank" href="https://www.star.nesdis.noaa.gov/GOES/conus_band.php?sat=G19&band=EXTENT3&length=24"><img src="https://cdn.star.nesdis.noaa.gov/GOES19/GLM/CONUS/EXTENT3/GOES19-CONUS-EXTENT3-625x375.gif"></a>
     </div>
 </div>
-<h2>Current Observations</h2>
-<div style="border: 1px solid black; max-width: 1300px;margin: auto;">
-<h3>Active Alerts (<span style="text-decoration: underline dotted;" title="Specifically, latlon 33.94872107111243,-83.3752234533988">Athens Campus</span>)</h3>
-<p class="alertbox" id="alertbox">Loading...</p>
+<h2 id="obs">Current Observations</h2>
+<div class="overcontainer">
+    <h3>Active Alerts (<span style="text-decoration: underline dotted;" title="Specifically, latlon 33.94872107111243,-83.3752234533988">Athens Campus</span>)</h3>
+    <p class="alertbox" id="alertbox">Loading...</p>
 </div>
 <div class="gridcontainer">
     <div>
         <p>WPC Forecast Charts</p>
         <p><a href="#" id="wpc1">Day 1</a> | <a href="#" id="wpc2">Day 2</a> | <a href="#" id="wpc3">Day 3</a></p>
-        <img style="width: 80%" src="https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png" id="wpcimage">
+        <a target="_blank" href="https://www.wpc.ncep.noaa.gov/"><img style="width: 80%" src="https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png" id="wpcimage"></a>
     </div>
     <div>
         <p>Latest Surface Analysis</p>
-        <img style="width: 80%;" src="https://www.wpc.ncep.noaa.gov/sfc/namussfcwbg.gif">
+        <a target="_blank" href="https://www.wpc.ncep.noaa.gov/html/sfc2.shtml"><img style="width: 80%;" src="https://www.wpc.ncep.noaa.gov/sfc/namussfcwbg.gif"></a>
     </div>
     <div>
         <p>AHN METAR Log</p>
+        <p><a target="_blank" href="https://www.weather.gov/wrh/timeseries?site=KAHN">Timeseries Viewer</a></p>
         <p class="textbox" id="ahnmetar">Loading...</p>
     </div>
     <div>
         <p>CNI METAR Log</p>
+        <p><a target="_blank" href="https://www.weather.gov/wrh/timeseries?site=KCNI">Timeseries Viewer</a></p>
         <p class="textbox" id="cnimetar">Loading...</p>
     </div>
     <div>
         <p>KFFC Reflectivity Loop</p>
-        <img style="width: 80%;" src="https://radar.weather.gov/ridge/standard/KFFC_loop.gif">
+        <a target="_blank" href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy04NC41NjYsMzMuMzYzXSwibG9jYXRpb24iOm51bGwsInpvb20iOjcuNTk1MTc5OTYwNjE1NDcxNSwiZmlsdGVyIjpudWxsLCJsYXllciI6InNyX2JyZWYiLCJzdGF0aW9uIjoiS0ZGQyJ9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19"><img style="width: 80%;" src="https://radar.weather.gov/ridge/standard/KFFC_loop.gif"></a>
     </div>
     <div>
         <p>KFFC Velocity Loop</p>
-        <img style="width: 80%;" src="https://radar.weather.gov/ridge/standard/base_velocity/KFFC_loop.gif">
+        <a target="_blank" href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJsb2NhbCIsImNlbnRlciI6Wy04NC41NjYsMzMuMzYzXSwibG9jYXRpb24iOm51bGwsInpvb20iOjcuNTk1MTc5OTYwNjE1NDcxNSwiZmlsdGVyIjpudWxsLCJsYXllciI6InNyX2J2ZWwiLCJzdGF0aW9uIjoiS0ZGQyJ9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOnRydWUsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19"><img style="width: 80%;" src="https://radar.weather.gov/ridge/standard/base_velocity/KFFC_loop.gif"></a>
     </div>
 </div>
-<h2>Forecast Guidance</h2>
+<h2 id="guidance">Forecast Guidance</h2>
+<div class="overcontainer">
+    <h3>Model Guidance</h3>
+    <p>Eventually, I want to embed some models in here...</p>
+    <p><a target="_blank" href="https://wrf.weatherdawgs.net/">UGA-WRF</a> | <a target="_blank" href="https://uga-wrf-club.github.io/ugampas-web/">UGA-MPAS</a> | <a target="_blank" href="https://maps.weatherbell.com/">WeatherBell</a> | <a target="_blank" href="https://www.tropicaltidbits.com/analysis/models/">Tidbits</a></p>
+</div>
 <div class="gridcontainer">
     <div>
         <p>NWS FFC Discussion</p>
@@ -76,6 +83,26 @@
         <p class="textbox" id="ffchwo">Loading...</p>
     </div>
 </div>
-<p>nya</p>
+<h2 id="forecast">Forecast!</h2>
+<div class="overcontainer">
+    <form id="forecastForm">
+    <label for="floc">This is a next day forecast for:</label> <input type="text" id="floc" name="floc">
+    <br>
+    <label for="flo">Overnight Low:</label> <input type="text" id="flo" name="flo">
+    <label for="fopop">Overnight-Morning PoP:</label> <input type="text" id="fopop" name="fopop">
+    <br>
+    <label for="fhi">Tomorrow's High:</label> <input type="text" id="fhi" name="fhi">
+    <label for="fapop">Afternoon-Evening PoP:</label> <input type="text" id="fapop" name="fapop">
+    <br>
+    <label for="fstory">Weather story of the day:</label> <textarea id="fstory" name="fstory" rows="2" cols="60"></textarea>
+    <br>
+    <button type="submit">Submit forecast!</button>
+    </form>
+    <div>
+        <p class="submittedforecast" id="submittedforecast">awaiting forecast...<p>
+    </div>
+</div>
+<p><a href='cat-explosion.gif'>nya</a></p>
+<button onclick="toTop()" id="topBtn" title="Return to top of page">Top</button> 
 <script src="script.js"></script>
 </body>

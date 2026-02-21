@@ -55,3 +55,34 @@ wpc3.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 
 window.onload = function () {
     updateTextBoxes()
 }
+
+// forecast generator
+const forecastForm = document.getElementById('forecastForm')
+forecastForm.addEventListener('submit', function (event){
+    event.preventDefault();
+    
+    const floc = document.getElementById('floc')
+    const flo = document.getElementById('flo')
+    const fopop = document.getElementById('fopop')
+    const fhi = document.getElementById('fhi')
+    const fapop = document.getElementById('fapop')
+    const fstory = document.getElementById('fstory')
+
+    const submittedforecast = document.getElementById("submittedforecast")
+    submittedforecast.innerHTML = `Forecast for ${floc.value}<br>Lo: ${flo.value}<br>Early PoP: ${fopop.value}<br>Hi: ${fhi.value}<br>Late PoP: ${fapop.value}<br>${fstory.value}`
+})
+
+// top button
+let mybutton = document.getElementById("topBtn");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+function toTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+} 
