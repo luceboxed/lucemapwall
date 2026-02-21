@@ -40,7 +40,7 @@ async function updateAlertBox() {
         if (data.features.length > 0) {
         let alertMessages = data.features.map(alert => {
             const properties = alert.properties;
-            return `<strong>${properties.event}</strong>: ${properties.parameters.NWSheadline}<br><details><summary>More:</summary><p class="alertdetail">${properties.description}</p></details>`;
+            return `<strong>${properties.event}</strong>: ${properties.parameters.NWSheadline}<br><details><summary>More:</summary><p class="alertdetail">Issuing office: ${properties.senderName}<br>${properties.description}</p></details>`;
         });
         alertbox.innerHTML = alertMessages.join('<br>');
         } else {
@@ -94,7 +94,9 @@ function toTop() {
   document.documentElement.scrollTop = 0;
 } 
 
+// start page
 window.onload = function () {
     updateTextBoxes()
     updateAlertBox()
 }
+setTimeout(function() { window.location.reload(); }, 600000)
