@@ -16,6 +16,7 @@ body {
     text-align: center;
 }
 .textbox {
+    font-family: 'Courier New', Courier, monospace;
     max-width: 510px;
     height: 500px;
     margin-left: auto;
