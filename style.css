@@ -9,10 +9,25 @@
     text-align: center;
 }
 .textbox {
-    width: 510px;
-    height: 700px;
+    max-width: 510px;
+    height: 500px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
+    border: 1px solid black;
+    text-align: left;
+    white-space: pre-line;
+    font-size: 100%;
+    overflow: auto;
+}
+
+.alertbox {
+    text-align: left;
+}
+
+.alertdetail {
+    max-width: 500px;
+    max-height: 500px;
     background-color: white;
     border: 1px solid black;
     text-align: left;

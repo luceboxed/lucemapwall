@@ -1,5 +1,9 @@
+// text box fetching
+const ahnmetarbox = document.getElementById("ahnmetar")
+const cnimetarbox = document.getElementById("cnimetar")
 const ffcdiscussbox = document.getElementById("ffcdiscussion")
 const ffchwobox = document.getElementById("ffchwo")
+const alertbox = document.getElementById("alertbox")
 async function updateTextBoxes() {
     try {
         fetch('https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=AFDFFC').then(response => response.text()).then(data => {ffcdiscussbox.textContent = data})
@@ -11,7 +15,42 @@ async function updateTextBoxes() {
     } catch (error) {
         ffchwobox.textContent = "HWO failed to load. Maybe that's not a bad thing :-)"
     }
+    try {
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=AHN&hours=24').then(response => response.text()).then(data => {ahnmetarbox.textContent = data})
+    } catch (error) {
+        ahnmetarbox.textContent = "AHN METAR failed to load. :-("
+    }
+    try {
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=CNI&hours=24').then(response => response.text()).then(data => {cnimetarbox.textContent = data})
+    } catch (error) {
+        cninmetarbox.textContent = "CNI METAR failed to load. :-("
+    }
+    try {
+        const response = await fetch('https://api.weather.gov/alerts/active?point=33.94872107111243,-83.3752234533988')
+        const data = await response.json();
+        if (data.features.length > 0) {
+        let alertMessages = data.features.map(alert => {
+            const properties = alert.properties;
+            return `<strong>${properties.event}</strong>: ${properties.parameters.NWSheadline}<br><details><summary>More:</summary><p class="alertdetail">${properties.description}</p></details>`;
+        });
+        alertbox.innerHTML = alertMessages.join('<br>');
+        } else {
+            alertbox.innerHTML = 'Nothing is happening! ...Really? That\'s boring.';
+        }
+    }
+    catch (error) {
+        alertbox.textContent = "Alerts failed to load. I sure hope nothing is happening today..."
+    }
 }
+
+// day selector for wpc stuff
+const wpcimage = document.getElementById("wpcimage")
+const wpc1 = document.getElementById("wpc1")
+wpc1.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png'})
+const wpc2 = document.getElementById("wpc2")
+wpc2.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad2.png'})
+const wpc3 = document.getElementById("wpc3")
+wpc3.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad3.png'})
 
 window.onload = function () {
     updateTextBoxes()

@@ -29,15 +29,27 @@
     </div>
 </div>
 <h2>Current Observations</h2>
+<div style="border: 1px solid black; max-width: 1300px;margin: auto;">
+<h3>Active Alerts (<span style="text-decoration: underline dotted;" title="Specifically, latlon 33.94872107111243,-83.3752234533988">Athens Campus</span>)</h3>
+<p class="alertbox" id="alertbox">Loading...</p>
+</div>
 <div class="gridcontainer">
     <div>
         <p>WPC Forecast Charts</p>
-        <p><a href="#">Day 1</a> | <a href="#">Day 2</a> | <a href="#">Day 3</a></p>
-        <img style="width: 80%" src="https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png">
+        <p><a href="#" id="wpc1">Day 1</a> | <a href="#" id="wpc2">Day 2</a> | <a href="#" id="wpc3">Day 3</a></p>
+        <img style="width: 80%" src="https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png" id="wpcimage">
     </div>
     <div>
         <p>Latest Surface Analysis</p>
         <img style="width: 80%;" src="https://www.wpc.ncep.noaa.gov/sfc/namussfcwbg.gif">
+    </div>
+    <div>
+        <p>AHN METAR Log</p>
+        <p class="textbox" id="ahnmetar">Loading...</p>
+    </div>
+    <div>
+        <p>CNI METAR Log</p>
+        <p class="textbox" id="cnimetar">Loading...</p>
     </div>
     <div>
         <p>KFFC Reflectivity Loop</p>
