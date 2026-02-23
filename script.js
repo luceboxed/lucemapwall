@@ -3,6 +3,8 @@ const ahnmetarbox = document.getElementById("ahnmetar")
 const cnimetarbox = document.getElementById("cnimetar")
 const ffcdiscussbox = document.getElementById("ffcdiscussion")
 const ffchwobox = document.getElementById("ffchwo")
+const ahncli = document.getElementById("ahncli")
+const atlcli = document.getElementById("atlcli")
 const alertbox = document.getElementById("alertbox")
 const statewide = document.getElementById('alertstatewide');
 async function updateTextBoxes() {
@@ -25,6 +27,16 @@ async function updateTextBoxes() {
         fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=CNI&hours=24').then(response => response.text()).then(data => {cnimetarbox.textContent = data})
     } catch (error) {
         cninmetarbox.textContent = "CNI METAR failed to load. :-("
+    }
+    try {
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=CLIAHN').then(response => response.text()).then(data => {ahncli.textContent = data})
+    } catch (error) {
+        ahncli.textContent = "AHN Climate Summary failed to load. :-("
+    }
+    try {
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=CLIATL').then(response => response.text()).then(data => {atlcli.textContent = data})
+    } catch (error) {
+        atlcli.textContent = "ATL Climate Summary failed to load. :-("
     }
 }
 async function updateAlertBox() {

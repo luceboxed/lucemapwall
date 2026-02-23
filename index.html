@@ -10,7 +10,7 @@
 <h3>...aka, the 4121 ultra forecast machine</h2>
 <p>(use responsibly.)</p>
 <p>Click on any image to jump to it in a new tab.</p>
-<p style="font-size: 115%;">Jump to: <a href="#sat">Satellite Imagery</a> | <a href="#obs">Current Obs</a> | <a href="#guidance">Forecast Guidance</a> | <a href="#forecast">Forecast Submission</a> | <a href='#future'>Long-Range</a></p>
+<p style="font-size: 115%;">Jump to: <a href="#sat">Satellite Imagery</a> | <a href="#obs">Current Obs</a> | <a href="#guidance">Forecast Guidance</a> | <a href="#forecast">Forecast Submission</a> | <a href='#future'>Long-Range</a> | <a href="#climo">Climo</a></p>
 <h2 id="sat">CONUS Satellite Imagery</h2>
 <p>For other bands and higher res imagery, go <a href="https://www.star.nesdis.noaa.gov/GOES/conus.php?sat=G19">here.</a></p>
 <div class="gridcontainer">
@@ -126,6 +126,23 @@
     </form>
     <div>
         <p class="submittedforecast" id="submittedforecast">awaiting forecast...<p>
+    </div>
+</div>
+<h2 id="climo">Climo</h2>
+<div class="overcontainer">
+    <div>
+        <p>xmACIS2</p>
+        <iframe src="https://xmacis.rcc-acis.org/" width="1000" height="500"></iframe>
+    </div>
+</div>
+<div class="gridcontainer">
+    <div>
+        <p>KAHN Climate Summary</p>
+        <p class="textbox" id="ahncli">Loading...</p>
+    </div>
+    <div>
+        <p>KATL Climate Summary</p>
+        <p class="textbox" id="atlcli">Loading...</p>
     </div>
 </div>
 <h2 id="future">Long-Range</h2>
