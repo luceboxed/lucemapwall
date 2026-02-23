@@ -19,12 +19,12 @@ async function updateTextBoxes() {
         ffchwobox.textContent = "HWO failed to load. Maybe that's not a bad thing :-)"
     }
     try {
-        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=AHN&hours=24').then(response => response.text()).then(data => {ahnmetarbox.textContent = data})
+        fetch('https://aviationweather.gov/api/data/metar?ids=KAHN&format=decoded&taf=false&hours=48').then(response => response.text()).then(data => {ahnmetarbox.textContent = data})
     } catch (error) {
         ahnmetarbox.textContent = "AHN METAR failed to load. :-("
     }
     try {
-        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=CNI&hours=24').then(response => response.text()).then(data => {cnimetarbox.textContent = data})
+        fetch('https://aviationweather.gov/api/data/metar?ids=KCNI&format=decoded&taf=false&hours=48').then(response => response.text()).then(data => {cnimetarbox.textContent = data})
     } catch (error) {
         cninmetarbox.textContent = "CNI METAR failed to load. :-("
     }
