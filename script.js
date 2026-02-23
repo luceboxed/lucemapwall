@@ -163,3 +163,28 @@ window.onload = function () {
     updateAlertBox()
 }
 setTimeout(function() { window.location.reload(); }, 600000)
+
+// rng
+const seed = Math.floor(Math.random() * 50) + 1
+console.log(seed)
+if (seed == 1) {
+    document.title = "hi :3"
+}
+else if (seed == 3) {
+    document.title = "guys, i'm new to meteorology is this bad"
+}
+else if (seed == 5) {
+    document.title = "it's intuitive!"
+}
+else if (seed == 7) {
+    document.title = "we could all afford..."
+}
+else if (seed == 9) {
+    document.title = "don't bust the forecast!"
+}
+else if (seed == 11) {
+    document.title = "making forecasting TOO easy"
+}
+else {
+    document.title = "lucemapwall"
+}
