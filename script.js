@@ -19,12 +19,30 @@ async function updateTextBoxes() {
         ffchwobox.textContent = "HWO failed to load. Maybe that's not a bad thing :-)"
     }
     try {
-        fetch('https://aviationweather.gov/api/data/metar?ids=KAHN&format=decoded&taf=false&hours=48').then(response => response.text()).then(data => {ahnmetarbox.textContent = data})
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=AHN&hours=24').then(response => response.text())
+        .then(metarText => {
+            const rows = metarText.trim().split('\n');
+            const metar = rows.map(row => {
+                const columns = row.split(',');
+                return columns[2] ? columns[2].trim():'';
+            });
+            const metardata = metar.join('\n')
+            ahnmetarbox.textContent = metardata
+        })
     } catch (error) {
         ahnmetarbox.textContent = "AHN METAR failed to load. :-("
     }
     try {
-        fetch('https://aviationweather.gov/api/data/metar?ids=KCNI&format=decoded&taf=false&hours=48').then(response => response.text()).then(data => {cnimetarbox.textContent = data})
+        fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=CNI&hours=24').then(response => response.text())
+        .then(metarText => {
+            const rows = metarText.trim().split('\n');
+            const metar = rows.map(row => {
+                const columns = row.split(',');
+                return columns[2] ? columns[2].trim():'';
+            });
+            const metardata = metar.join('\n')
+            cnimetarbox.textContent = metardata
+        })
     } catch (error) {
         cninmetarbox.textContent = "CNI METAR failed to load. :-("
     }
