@@ -9,8 +9,9 @@
 <h1 id="top">The lucemapwall</h1>
 <h3>...aka, the 4121 ultra forecast machine</h2>
 <p>(use responsibly.)</p>
+<button id="iemrefresher">Manually refresh IEM autoplots (do not spam!)</button>
 <p>Click on any image to jump to it in a new tab.</p>
-<p style="font-size: 115%;">Jump to: <a href="#sat">Satellite Imagery</a> | <a href="#obs">Current Obs</a> | <a href="#guidance">Forecast Guidance</a> | <a href="#forecast">Forecast Submission</a> | <a href='#future'>Long-Range</a> | <a href="#climo">Climo</a></p>
+<p style="font-size: 115%;">Jump to: <a href="#sat">Satellite Imagery</a> | <a href="#obs">Current Obs</a> | <a href="#guidance">Forecast Guidance</a> | <a href="#forecast">Forecast Submission</a> | <a href="#climo">Climo</a> | <a href='#future'>Long-Range</a> </p>
 <h2 id="sat">CONUS Satellite Imagery</h2>
 <p>For other bands and higher res imagery, go <a href="https://www.star.nesdis.noaa.gov/GOES/conus.php?sat=G19">here.</a></p>
 <div class="gridcontainer">
@@ -49,12 +50,12 @@
     </div>
     <div>
         <p>Nationwide Alert Map</p>
-        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img src="https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:nws::add:stats::sc:yes::dpi:100.png"></a>
+        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img id="iemwwa" src="https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:nws::add:stats::sc:yes::dpi:100.png"></a>
         <!--add :_cb:1 to the end of the url to make the image update everytime to visit the page; off right now cause i dont wanna spam iem servers-->
     </div>
     <div>
         <p>Southeastern Alert Map</p>
-        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img src="https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:southeast::add:stats::sc:yes::dpi:100.png"></a>
+        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img id="iemwwase" src="https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:southeast::add:stats::sc:yes::dpi:100.png"></a>
     </div>
     <div>
         <p>National Reflectivity Loop</p>
@@ -71,6 +72,14 @@
     <div>
         <p>GA Drought Monitor</p>
         <a target="_blank" href="https://droughtmonitor.unl.edu/CurrentMap.aspx"><img  src="https://droughtmonitor.unl.edu/data/png/current/current_ga_trd.png"></a>
+    </div>
+    <div>
+        <p>GA Temp Map (from METAR sites)</p>
+        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img id="iemtemp" src="https://mesonet.agron.iastate.edu/plotting/auto/plot/192/t:state::network:WFO::wfo:DMX::state:GA::v:tmpf::cmap:RdYlBu_r::_r:t::dpi:100.png"></a>
+    </div>
+    <div>
+        <p>GA Dewp Map (from METAR sites)</p>
+        <a target="_blank" href="https://mesonet.agron.iastate.edu/plotting/auto/"><img id="iemdewp" src="https://mesonet.agron.iastate.edu/plotting/auto/plot/192/t:state::network:WFO::wfo:DMX::state:GA::v:dwpf::below:-20::cmap:jet::_r:t::dpi:100.png"></a>
     </div>
     <div>
         <p>AHN METAR Log</p>

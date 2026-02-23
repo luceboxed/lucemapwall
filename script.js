@@ -18,6 +18,7 @@ async function updateTextBoxes() {
     } catch (error) {
         ffchwobox.textContent = "HWO failed to load. Maybe that's not a bad thing :-)"
     }
+    // pretty up the metars cause they are in csv
     try {
         fetch('https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=metar&station=AHN&hours=24').then(response => response.text())
         .then(metarText => {
@@ -107,6 +108,24 @@ forecastForm.addEventListener('submit', function (event){
 
     const submittedforecast = document.getElementById("submittedforecast")
     submittedforecast.innerHTML = `Forecast for ${floc.value}<br>Lo: ${flo.value}<br>Early PoP: ${fopop.value}<br>Hi: ${fhi.value}<br>Late PoP: ${fapop.value}<br>${fstory.value}`
+})
+
+// autoplot refresh
+const iemrefreshbutton = document.getElementById('iemrefresher')
+const wwamap = document.getElementById('iemwwa')
+const wwasemap = document.getElementById('iemwwase')
+const tempmap = document.getElementById('iemtemp')
+const dewpmap = document.getElementById('iemdewp')
+iemrefreshbutton.addEventListener('click', function(event) {
+    console.log('refreshing iem plots')
+    wwamap.src = ""
+    wwasemap.src = ""
+    tempmap.src = ""
+    dewpmap.src = ""
+    wwamap.src = "https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:nws::add:stats::sc:yes::dpi:100::_cb:1.png"
+    wwasemap.src = "https://mesonet.agron.iastate.edu/plotting/auto/plot/247/opt:active::csector:southeast::add:stats::sc:yes::dpi:100::_cb:1.png"
+    tempmap.src = "https://mesonet.agron.iastate.edu/plotting/auto/plot/192/t:state::network:WFO::wfo:DMX::state:GA::v:tmpf::cmap:RdYlBu_r::_r:t::dpi:100::_cb:1.png"
+    dewpmap.src = "https://mesonet.agron.iastate.edu/plotting/auto/plot/192/t:state::network:WFO::wfo:DMX::state:GA::v:dwpf::below:-20::cmap:jet::_r:t::dpi:100::_cb:1.png"
 })
 
 // top button
