@@ -85,7 +85,7 @@ async function updateAlertBox() {
 }
 statewide.addEventListener('click', updateAlertBox)
 
-// day selector for wpc stuff
+// day selector for wpc/spc stuff
 const wpcimage = document.getElementById("wpcimage")
 const wpc1 = document.getElementById("wpc1")
 wpc1.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad1.png'})
@@ -93,6 +93,20 @@ const wpc2 = document.getElementById("wpc2")
 wpc2.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad2.png'})
 const wpc3 = document.getElementById("wpc3")
 wpc3.addEventListener('click', event => {event.preventDefault(); wpcimage.src = 'https://www.wpc.ncep.noaa.gov/NationalForecastChart/staticmaps/noaad3.png'})
+const spcimage = document.getElementById("spcimage")
+const spc1 = document.getElementById("spc1")
+spc1.addEventListener('click', event => {event.preventDefault(); spcimage.src = 'https://www.spc.noaa.gov/products/outlook/day1otlk.gif'})
+const spc2 = document.getElementById("spc2")
+spc2.addEventListener('click', event => {event.preventDefault(); spcimage.src = 'https://www.spc.noaa.gov/products/outlook/day2otlk.gif'})
+const spc3 = document.getElementById("spc3")
+spc3.addEventListener('click', event => {event.preventDefault(); spcimage.src = 'https://www.spc.noaa.gov/products/outlook/day3otlk.gif'})
+const erainimage = document.getElementById("erainimage")
+const rain1 = document.getElementById("rain1")
+rain1.addEventListener('click', event => {event.preventDefault(); erainimage.src = 'https://www.wpc.ncep.noaa.gov/qpf/94ewbg.gif'})
+const rain2 = document.getElementById("rain2")
+rain2.addEventListener('click', event => {event.preventDefault(); erainimage.src = 'https://www.wpc.ncep.noaa.gov/qpf/98ewbg.gif'})
+const rain3 = document.getElementById("rain3")
+rain3.addEventListener('click', event => {event.preventDefault(); erainimage.src = 'https://www.wpc.ncep.noaa.gov/qpf/99ewbg.gif'})
 
 // forecast generator
 const forecastForm = document.getElementById('forecastForm')
