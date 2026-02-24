@@ -7,6 +7,7 @@ const ahncli = document.getElementById("ahncli")
 const atlcli = document.getElementById("atlcli")
 const alertbox = document.getElementById("alertbox")
 const statewide = document.getElementById('alertstatewide');
+const nationwide = document.getElementById('alertnationwide');
 async function updateTextBoxes() {
     try {
         fetch('https://mesonet.agron.iastate.edu/cgi-bin/afos/retrieve.py?pil=AFDFFC').then(response => response.text()).then(data => {ffcdiscussbox.textContent = data})
@@ -63,6 +64,9 @@ async function updateAlertBox() {
         if (statewide.checked == true) {
             var url = 'https://api.weather.gov/alerts/active?area=GA'
         }
+        else if (nationwide.checked == true) {
+            var url = 'https://api.weather.gov/alerts/active'
+        }
         else {
             var url = 'https://api.weather.gov/alerts/active?point=33.94872107111243,-83.3752234533988'
         }
@@ -84,6 +88,7 @@ async function updateAlertBox() {
     }
 }
 statewide.addEventListener('click', updateAlertBox)
+nationwide.addEventListener('click', updateAlertBox)
 
 // day selector for wpc/spc stuff
 const wpcimage = document.getElementById("wpcimage")
