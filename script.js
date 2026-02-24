@@ -166,7 +166,6 @@ setTimeout(function() { window.location.reload(); }, 600000)
 
 // rng
 const seed = Math.floor(Math.random() * 50) + 1
-console.log(seed)
 if (seed == 1) {
     document.title = "hi :3"
 }
